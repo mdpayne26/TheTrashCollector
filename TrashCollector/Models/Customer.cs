@@ -7,11 +7,12 @@ using System.Web;
 
 namespace TrashCollector.Models
 {
-    public class Customer : User
+    public class Customer
     {
         [Key]
-        
+        public int Id { get; set; }
         public string CustomerNumber { get; set; }
+        public string Name { get; set; }
         public string ExtraDay {get; set;}
         public int Balance { get; set; }
         public string SuspendStartDate { get; set; }
@@ -19,8 +20,13 @@ namespace TrashCollector.Models
         public string StreetAddress { get; set; }
         public string City { get; set; }
         public string State { get; set; }
+        public string Zipcode { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
         // --foreign keys--
-        [ForeignKey("PickupDay")]
+        [ForeignKey("Pickup")]
         public int PickupDay { get; set; }
+        [ForeignKey("Roles")]
+        public int RolesId { get; set; }
     }
 }
