@@ -17,7 +17,9 @@ namespace TrashCollector.Models
         public string Zipcode { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        [ForeignKey("Roles")]
-        public int RolesId { get; set; }
+        public DateTime PickupDay { get; set; }
+
+        
+        
     }
 }
