@@ -50,7 +50,7 @@ namespace TrashCollector.Models
     {
         [Required]
         [Display(Name = "UserName")]
-        [EmailAddress]
+        //[EmailAddress]
         public string UserName { get; set; }
 
         [Required]

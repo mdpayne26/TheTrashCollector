@@ -12,9 +12,6 @@ namespace TrashCollector
 {
     public partial class Startup
     {
-        private DbContext context;
-        private ApplicationDbContext ApplicationDbContext;
-
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
@@ -22,7 +19,7 @@ namespace TrashCollector
         }
         private void CreateRolesAndUsers()
         {
-            ApplicationDbContext = new ApplicationDbContext();
+            ApplicationDbContext context = new ApplicationDbContext();
 
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
