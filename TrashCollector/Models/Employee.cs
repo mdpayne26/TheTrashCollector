@@ -19,7 +19,7 @@ namespace TrashCollector.Models
         public string Password { get; set; }
         public DateTime PickupDay { get; set; }
         [ForeignKey("Id")]
-        public int AspNetUsers { get; set; }
+        public string AspNetUsers { get; set; }
         public object ApplicationUserId { get; internal set; }
     }
 }
