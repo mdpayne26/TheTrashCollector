@@ -50,7 +50,7 @@ namespace TrashCollector.Models
     {
         [Required]
         [Display(Name = "UserName")]
-        //[EmailAddress]
+        [EmailAddress]
         public string UserName { get; set; }
 
         [Required]
@@ -73,9 +73,9 @@ namespace TrashCollector.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
-        [Display(Name = "UserName")]
-        public string UserName { get; set; }
+        //[Required]
+        //[Display(Name = "UserName")]
+        //public string UserName { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]

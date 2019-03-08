@@ -15,6 +15,8 @@ namespace TrashCollector.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        //ApplicationDbContext db;
+
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         ApplicationDbContext contex;
@@ -166,6 +168,16 @@ namespace TrashCollector.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
                     await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
+                    if(model.UserRoles == "Employee")
+                    {
+                        // go to employee create
+                         return RedirectToAction("Create", "Users");
+
+                    }
+                    else if(model.UserRoles == "Customer")
+                    {
+                        return RedirectToAction("Create", "Users");
+                    }
                     return RedirectToAction("Index", "Users");
                 }
                 ViewBag.Name = new SelectList(contex.Roles.Where(u =>!u.Name.Contains("Admin")).ToList(), "Name", "Name");
@@ -173,6 +185,7 @@ namespace TrashCollector.Controllers
             }
 
             // If we got this far, something failed, redisplay form
+            //ViewData["User"] = User;
             return View(model);
         }
 

@@ -186,6 +186,10 @@
     <Compile Include="Migrations\201903061441109_TrashCollector1.Designer.cs">
       <DependentUpon>201903061441109_TrashCollector1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903081505596_TrashCollector3.cs" />
+    <Compile Include="Migrations\201903081505596_TrashCollector3.Designer.cs">
+      <DependentUpon>201903081505596_TrashCollector3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -282,6 +286,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201903061441109_TrashCollector1.resx">
       <DependentUpon>201903061441109_TrashCollector1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903081505596_TrashCollector3.resx">
+      <DependentUpon>201903081505596_TrashCollector3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

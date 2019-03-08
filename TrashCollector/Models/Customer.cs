@@ -24,11 +24,13 @@ namespace TrashCollector.Models
         public string Zipcode { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-       
-       
+
+
         // --foreign keys--
-        //[ForeignKey("RolesId")]
-        //public virtual Roles RolesId { get; set; }
+        [ForeignKey("Email")]
+        public string AspNetUsers { get; set; }
+        
+        public string ApplicationUserId { get; internal set; }
     }
 
    

@@ -18,8 +18,8 @@ namespace TrashCollector.Models
         public string Email { get; set; }
         public string Password { get; set; }
         public DateTime PickupDay { get; set; }
-
-        
-        
+        [ForeignKey("Id")]
+        public int AspNetUsers { get; set; }
+        public object ApplicationUserId { get; internal set; }
     }
 }

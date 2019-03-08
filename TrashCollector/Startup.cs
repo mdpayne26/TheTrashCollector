@@ -51,10 +51,10 @@ namespace TrashCollector
             }
 
             // creating Creating Manager role    
-            if (!roleManager.RoleExists("Manager"))
+            if (!roleManager.RoleExists("Admin"))
             {
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-                role.Name = "Manager";
+                role.Name = "Admin";
                 roleManager.Create(role);
 
             }
@@ -64,6 +64,14 @@ namespace TrashCollector
             {
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
                 role.Name = "Employee";
+                roleManager.Create(role);
+
+            }
+
+            if (!roleManager.RoleExists("Customer"))
+            {
+                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                role.Name = "Customer";
                 roleManager.Create(role);
 
             }
