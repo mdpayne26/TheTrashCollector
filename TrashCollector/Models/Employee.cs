@@ -17,9 +17,10 @@ namespace TrashCollector.Models
         public string Zipcode { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public DateTime PickupDay { get; set; }
-        [ForeignKey("Id")]
-        public string AspNetUsers { get; set; }
-        public object ApplicationUserId { get; internal set; }
+        public DayOfWeek PickupDay { get; set; }
+        [ForeignKey("ApplicationUser")]
+        public string ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
+        
     }
 }
