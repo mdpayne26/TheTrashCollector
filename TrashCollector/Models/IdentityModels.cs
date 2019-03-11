@@ -32,5 +32,7 @@ namespace TrashCollector.Models
         {
             return new ApplicationDbContext();
         }
+
+        
     }
 }
