@@ -14,14 +14,16 @@ namespace TrashCollector.Controllers
     public class EmployeesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private IQueryable<Customer> DayOfWeek;
 
         // GET: Employees
         public ActionResult Index()
         {
             var user = User.Identity.GetUserId();
             Employee employee = db.Employee.Where(e => e.ApplicationUserId == user).Single();
-            var customer = db.Customer.Where(c => c.Zipcode == employee.Zipcode).ToList();
-            return View(customer);
+            var customers = db.Customer.Where(c => c.Zipcode == employee.Zipcode).ToList();
+            DayOfWeek = db.Customer.Where(c => c.PickupDay && customers.Where(w => w.Zipcode == employee.Zipcode));
+            return View(customers);
             
         }
 
