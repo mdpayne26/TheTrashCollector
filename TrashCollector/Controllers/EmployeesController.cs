@@ -21,10 +21,12 @@ namespace TrashCollector.Controllers
         {
             var user = User.Identity.GetUserId();
             Employee employee = db.Employee.Where(e => e.ApplicationUserId == user).Single();
-            var customers = db.Customer.Where(c => c.Zipcode == employee.Zipcode).ToList();
-            DayOfWeek = db.Customer.Where(c => c.PickupDay && customers.Where(w => w.Zipcode == employee.Zipcode));
-            return View(customers);
-            
+            var customer = db.Customer.Where(c => c.Zipcode == employee.Zipcode).ToList();
+            //var DayOfWeek = db.Customer.Where(d => d.Zipcode == employee.Zipcode).ToList();
+            //var DayOfWeek = db.Customer.Where(c => c.PickupDay && c.Zipcode == employee.Zipcode);
+            //DayOfWeek = db.Customer.Where(d => d.PickupDay == employee.PickupDay).ToList();            
+            //var DayOfWeek = db.Employee.Where(e.PickupDay);
+            return View(customer);
         }
 
         // GET: Employees/Details/5
